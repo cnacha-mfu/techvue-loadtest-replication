@@ -1,0 +1,83 @@
+# Example Google Cloud Run deployment configuration
+# This file shows the production configuration used in the paper.
+# Adapt for your own deployment.
+
+services:
+  - name: api-interviewer
+    description: "Core API Gateway and Business Logic"
+    cpu: 2
+    memory: "4Gi"
+    max_instances: 25
+    min_instances: 0
+    container_concurrency: 80
+    execution_environment: gen2
+    cpu_throttling: false  # always-allocated CPU
+    startup_cpu_boost: true
+    ingress: all  # accepts external traffic
+    timeout: 60s
+
+  - name: api-analyser
+    description: "LLM-powered Interview Analysis"
+    cpu: 2
+    memory: "4Gi"
+    max_instances: 25
+    min_instances: 0
+    container_concurrency: 1  # one request per instance (CPU-intensive LLM)
+    execution_environment: gen2
+    cpu_throttling: false
+    startup_cpu_boost: true
+    ingress: internal  # internal traffic only
+    timeout: 300s  # 5 minutes for LLM processing
+
+  - name: api-resume
+    description: "Resume Processing Pipeline"
+    cpu: 2
+    memory: "4Gi"
+    max_instances: 25
+    min_instances: 0
+    container_concurrency: 160
+    execution_environment: gen2
+    cpu_throttling: false
+    startup_cpu_boost: true
+    ingress: internal
+    timeout: 300s
+
+  - name: api-stream-websocket
+    description: "Real-time Speech-to-Text Streaming"
+    cpu: 2
+    memory: "4Gi"
+    max_instances: 25
+    min_instances: 0
+    container_concurrency: 1000
+    execution_environment: gen2
+    cpu_throttling: false
+    startup_cpu_boost: true
+    session_affinity: true  # sticky sessions for WebSocket
+    ingress: internal
+    timeout: 300s
+
+  - name: api-videoprocessor
+    description: "Asynchronous Video Processing"
+    cpu: 2
+    memory: "4Gi"
+    max_instances: 25
+    min_instances: 0
+    container_concurrency: 1  # one request per instance (CPU-intensive FFmpeg)
+    execution_environment: gen2
+    cpu_throttling: false
+    startup_cpu_boost: true
+    ingress: internal
+    timeout: 300s
+
+  - name: api-avatar
+    description: "AI Avatar Video Generation"
+    cpu: 2
+    memory: "4Gi"
+    max_instances: 25
+    min_instances: 0
+    container_concurrency: 1
+    execution_environment: gen2
+    cpu_throttling: false
+    startup_cpu_boost: true
+    ingress: internal
+    timeout: 300s

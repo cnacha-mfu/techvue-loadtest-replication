@@ -1,0 +1,20 @@
+Metric,Value
+API - Average Response Time (ms),2949.09
+API - Min Response Time (ms),2181.4465522766113
+API - Max Response Time (ms),3197.262763977051
+Total - Average Time (ms),481259.73
+Total - Min Time (ms),452653.6748409271
+Total - Max Time (ms),516713.3982181549
+Start - Successful Requests,40
+Start - Failed Requests,0
+Video - Total Expected,120
+Video - Total Created,120
+Video - Overall Success Rate (%),100.00%
+Video - Average Wait Time (seconds),142.8
+Video - Min Wait Time (seconds),115.5
+Video - Max Wait Time (seconds),164.1
+Video - Timeouts,0/40
+Video - Timeout Rate (%),0.0%
+Total Requests,40
+Concurrency Level,40
+Test Timestamp,20250731_073911

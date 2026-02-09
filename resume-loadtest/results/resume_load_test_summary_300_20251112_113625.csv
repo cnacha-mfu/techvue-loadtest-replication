@@ -1,0 +1,16 @@
+Metric,Value
+Bucket,your-project.firebasestorage.app
+Job ID,YOUR_JOB_ID
+Total Requests,300
+Run Seconds,93.58
+Success,80
+Failed,220
+Upload Avg (ms),4666.11
+Upload Min (ms),783
+Upload Max (ms),8081
+Extract Avg (ms),2812.81
+Extract Min (ms),507
+Extract Max (ms),5092
+Analyze Avg (ms),30015.44
+Analyze Min (ms),13230
+Analyze Max (ms),79989
