@@ -4,7 +4,7 @@ Replication package for the performance evaluation presented in:
 
 > **Architecting LLM-Powered Applications: A Microservices Approach for Automated Video Interviews**
 > *Software: Practice and Experience* (submitted)
-> DOI: [to be inserted upon publication]
+> Repository: [https://github.com/cnacha-mfu/techvue-loadtest-replication](https://github.com/cnacha-mfu/techvue-loadtest-replication)
 
 ## Contents
 
